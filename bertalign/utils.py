@@ -34,7 +34,23 @@ def split_sents(text, lang):
             sents = [sent.strip() for sent in sents]
         return sents
     else:
-        raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
+        #raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
+        return default_split_sents(text)
+    
+def default_split_sents(text, limit=1000):
+    sents = text.splitlines()
+    sents = [sent.strip() for sent in sents]
+    sents = [sent for sent in sents if sent]
+    # if exceed limit, split by limit
+    sents2 = []
+    for sent in sents:
+        while len(sent) > limit:
+            temp = sent[0:limit]
+            sents2.append(temp)
+            sent = sent[limit:]
+            sents2.append(sent)
+    return sents2
+    
     
 def _split_zh(text, limit=1000):
         sent_list = []
