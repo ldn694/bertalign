@@ -88,6 +88,15 @@ class Bertalign:
             src_line = self._get_line(bead[0], self.src_sents)
             tgt_line = self._get_line(bead[1], self.tgt_sents)
             print(src_line + "\n" + tgt_line + "\n")
+    
+    def get_aligned_sents(self):
+        aligned_sents = []
+        for bead in (self.result):
+            src_line = self._get_line(bead[0], self.src_sents)
+            tgt_line = self._get_line(bead[1], self.tgt_sents)
+            aligned_sents.append({'src': src_line, 'tgt': tgt_line})
+        return aligned_sents
+        
 
     @staticmethod
     def _get_line(bead, lines):
