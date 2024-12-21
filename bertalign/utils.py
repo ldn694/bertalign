@@ -41,15 +41,7 @@ def default_split_sents(text, limit=1000):
     sents = text.splitlines()
     sents = [sent.strip() for sent in sents]
     sents = [sent for sent in sents if sent]
-    # if exceed limit, split by limit
-    sents2 = []
-    for sent in sents:
-        while len(sent) > limit:
-            temp = sent[0:limit]
-            sents2.append(temp)
-            sent = sent[limit:]
-            sents2.append(sent)
-    return sents2
+    return sents
     
     
 def _split_zh(text, limit=1000):
