@@ -12,6 +12,7 @@ class Encoder:
         overlaps = []
         for line in yield_overlaps(sents, num_overlaps):
             overlaps.append(line)
+        print(len(overlaps))
 
         sent_vecs = self.model.encode(overlaps)
         embedding_dim = sent_vecs.size // (len(sents) * num_overlaps)
