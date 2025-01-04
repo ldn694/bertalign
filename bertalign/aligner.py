@@ -94,7 +94,7 @@ class Bertalign:
         for bead in (self.result):
             src_line = self._get_line(bead[0], self.src_sents)
             tgt_line = self._get_line(bead[1], self.tgt_sents)
-            if len(bead[0]) == 0 or len(bead[1]) == 0:
+            if len(bead) == 0:
                 id_src = []
                 id_tgt = []
             else:
