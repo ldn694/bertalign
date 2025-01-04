@@ -94,6 +94,7 @@ class Bertalign:
         for bead in (self.result):
             src_line = self._get_line(bead[0], self.src_sents)
             tgt_line = self._get_line(bead[1], self.tgt_sents)
+            print(bead[0], bead[1])
             id_src = [int(i) for i in range(bead[0][0], bead[0][-1]+1)]
             id_tgt = [int(i) for i in range(bead[1][0], bead[1][-1]+1)]
             aligned_sents.append({'src': src_line, 'tgt': tgt_line, 'id_src': id_src, 'id_tgt': id_tgt})
