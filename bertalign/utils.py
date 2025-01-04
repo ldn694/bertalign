@@ -25,17 +25,18 @@ def detect_lang(text):
     return lang
 
 def split_sents(text, lang):
-    if lang in LANG.SPLITTER:
-        if lang == 'zh':
-            sents = _split_zh(text)
-        else:
-            splitter = SentenceSplitter(language=lang)
-            sents = splitter.split(text=text) 
-            sents = [sent.strip() for sent in sents]
-        return sents
-    else:
-        #raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
-        return default_split_sents(text)
+    return default_split_sents(text)
+    # if lang in LANG.SPLITTER:
+    #     if lang == 'zh':
+    #         sents = _split_zh(text)
+    #     else:
+    #         splitter = SentenceSplitter(language=lang)
+    #         sents = splitter.split(text=text) 
+    #         sents = [sent.strip() for sent in sents]
+    #     return sents
+    # else:
+    #     #raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
+    #     return default_split_sents(text)
     
 def default_split_sents(text, limit=1000):
     sents = text.splitlines()
