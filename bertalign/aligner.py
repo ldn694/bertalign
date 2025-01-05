@@ -89,8 +89,15 @@ class Bertalign:
             tgt_line = self._get_line(bead[1], self.tgt_sents)
             print(src_line + "\n" + tgt_line + "\n")
 
+    def list_sth_to_list_int(self, lst):
+        return [int(i) for i in lst]
     def get_result(self):
-        return self.result
+        converted_result = self.result
+        for i in range(len(converted_result)):
+            converted_result[i][0] = self.list_sth_to_list_int(converted_result[i][0])
+            converted_result[i][1] = self.list_sth_to_list_int(converted_result[i][1])
+        return converted_result
+            
     
     def get_aligned_sents(self):
         aligned_sents = []
