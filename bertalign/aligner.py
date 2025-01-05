@@ -94,8 +94,7 @@ class Bertalign:
     def get_result(self):
         converted_result = self.result
         for i in range(len(converted_result)):
-            converted_result[i][0] = self.list_sth_to_list_int(converted_result[i][0])
-            converted_result[i][1] = self.list_sth_to_list_int(converted_result[i][1])
+            converted_result[i] = (self.list_sth_to_list_int(converted_result[i][0]), self.list_sth_to_list_int(converted_result[i][1]))
         return converted_result
             
     
